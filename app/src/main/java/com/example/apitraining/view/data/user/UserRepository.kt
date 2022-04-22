@@ -9,5 +9,5 @@ class UserRepository private constructor(){
         val instance: UserRepository = UserRepository()
     }
 
-    suspend fun getUser() =userApi.getUsers()
+    suspend fun getUser() = userApi.getUsers()
 }

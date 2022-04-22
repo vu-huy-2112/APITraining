@@ -1,6 +1,6 @@
 package com.example.apitraining.view.main
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.example.apitraining.R
 
