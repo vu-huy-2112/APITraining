@@ -7,14 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apitraining.R
+import com.example.apitraining.view.adapter.AdapterUser
+import com.example.apitraining.view.data.user.UserModel
 import kotlinx.android.synthetic.main.fragment_user.*
 
 class UserFragment : Fragment() {
 
     private val viewModel:UserViewModel by viewModels()
+    lateinit var adapterUser : AdapterUser
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,13 +31,21 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 //        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        huy.setOnClickListener {
-            findNavController().navigate(R.id.user_to_post)
-        }
         viewModel.userLiveData.observe(viewLifecycleOwner){
             Log.d("TAG", "onViewCreated: "+it)
+            getData(it)
         }
         viewModel.getUser()
+
     }
+
+    private fun getData(it: List<UserModel>) {
+        var listUser = it
+
+        adapterUser = AdapterUser(activity,listUser)
+        recycle_view_users.adapter = adapterUser
+        recycle_view_users.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
+    }
+
 
 }
