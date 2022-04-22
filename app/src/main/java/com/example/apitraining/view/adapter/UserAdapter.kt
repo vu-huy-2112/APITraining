@@ -1,6 +1,5 @@
 package com.example.apitraining.view.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import com.example.apitraining.R
 import com.example.apitraining.view.data.user.UserModel
 import kotlinx.android.synthetic.main.item_user.view.*
 
-class AdapterUser(val context: FragmentActivity?, val listUser: List<UserModel>) : RecyclerView.Adapter<AdapterUser.ViewHodelUser>() {
+class UserAdapter(val context: FragmentActivity?, val listUser: List<UserModel>) : RecyclerView.Adapter<UserAdapter.ViewHodelUser>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHodelUser {
